@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../node_modules/vue/dist/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+        <title>Card Flip - Deck Edition</title>
+        <link href="../components/css/deck.css" rel="stylesheet" type="text/css">       
+    </head>
+    <body>
+        <div id="app">
+        <div class="return">
+            <a href="../index.html">Return</a>
+        </div>
+        <div class="main-title">
+            <h1>{{title}}</h1>
+            <h2>{{section}}</h2>
+        </div>
+        <div class="container">
+            <div class="divider">
+                <div class="container center-just">
+                    <div v-for="card in duplicateCards" class="col-auto flip-container" v-bind:class="{ 'flipped': card.isFlipped, 'matched' : card.isMatched }" v-on:click="flipCard(card)">
+                       <div class="memorycard">
+                           <div class="front">
+                               <img width=130" height="200" src="../components/images/deck-back.png">
+                            </div>
+                           <div class="back">
+                               <img width="130" height="200" v-bind:src="'../components/images/'+ card.images" >
+                            </div>
+                       </div>
+                    </div>
+               </div>
+           </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    title:'Match em',
+                    section:'( Card Deck Edition )',
+                    /*An array of all the cards values*/
+                    cards:[
+                        { id:1, images:'ace.png', name:'ace' },
+                        { id:2, images:'two.png', name:'two' },
+                        { id:3, images:'three.png', name:'three' },
+                        { id:4, images:'four.png', name:'four' },
+                        { id:5, images:'five.png', name:'five' },
+                        { id:6, images:'six.png', name:'six' },
+                        { id:7, images:'seven.png', name:'seven' },
+                        { id:8, images:'eight.png', name:'eight' },
+                        { id:9, images:'nine.png', name:'nine' },
+                        { id:10, images:'ten.png', name:'ten' },
+                        { id:11, images:'jack.png', name:'jack' },
+                        { id:12, images:'queen.png', name:'queen' },
+                        { id:13, images:'king.png', name:'king' },
+                    ],
+                    /*Creating a copy of the cards*/
+                    duplicateCards: [
+
+                    ],
+                    /*Stored data for all flipped cards*/
+                    flippedCards: [
+                        
+                    ],
+                    finish: false,
+                },
+                created(){
+                    this.cards.forEach((card) => {
+                        Vue.set(card,'isFlipped',false);
+                        Vue.set(card,'isMatched',false);
+                    });
+                    /*'_.shuffle' - Creates an array of shuffled values.*/
+                    /*'_.cloneDeep' - Clones a value*/
+                    /*Trying to create clones of each output value in the cards array and mixing them up with shuffle*/
+                    this.duplicateCards = _.shuffle(this.duplicateCards.concat(_.cloneDeep(this.cards), _.cloneDeep(this.cards)));
+                },
+                methods:{
+                    flipCard(card){
+                        if(card.isMatched || card.isFlipped || this.flippedCards.length === 2)
+                        return;
+
+                        card.isFlipped = true;
+
+                        if(this.flippedCards.length < 2){
+                            this.flippedCards.push(card);
+                        }
+                        if(this.flippedCards.length === 2){
+                            this.matched(card);
+                        }
+                    },
+                    matched(card){
+                        /*Checking if the flipped card matches the next card*/
+                        if(this.flippedCards[0].name === this.flippedCards[1].name){
+                            setTimeout(() => {
+                                this.flippedCards.forEach(card => card.isMatched = true);
+                                this.flippedCards = [];
+                                if(this.memoryCards.every(card => card.isMatched === true)){
+                                    this.finish = true;
+                                }
+                            }, 400);
+                        } else /*Flip it back around*/{
+                            setTimeout(() => {
+                            this.flippedCards.forEach(card => card.isFlipped = false);
+                            this.flippedCards = [];
+                            }, 800);
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
+
+<!--
+    LIST OF THINGS TO STILL DO:
+    1. evaluated how to match the cards that belong together.
+    2. Allow for only two cards to be flipped.
+    3. Create logic around assuring that selected cards rotate back after every 2 flips
+    4. Blank out the cards that match.
+    5. If there is time, create a score board and/or timer 
+-->

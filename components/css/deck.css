@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+    /*Fonts*/
+    --originalBold: 'Teko', sans-serif;
+    --topTitle: 'Open Sans', sans-serif;
+    /*Colors*/
+    --beige: rgb(239, 250, 255);
+    --orange: rgb(61, 191, 231);
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--beige);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1 {
+    font-family: var(--topTitle);
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+}
+h2 {
+    font-family: var(--originalBold);
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+    color: var(--orange);
+}
+.main-title {
+    padding: 20px 0 40px 0;
+}
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    /* margin-right: -15px;
+    margin-left: -15px; */
+}
+.center-just {
+    justify-content: center!important;
+}
+.divider {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.flip-container {
+    min-height: 120px;
+    cursor: pointer;
+    margin-bottom: 1rem!important;
+    width: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+}
+.front,
+.back {
+    backface-visibility: hidden;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.front img,
+.back img {
+    border-radius: 10px;
+    background-color: white;
+}
+.back {
+    transform: rotateY(-180deg);
+    position: absolute;
+    margin-left: 15px;
+}
+.set-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flip-container.flipped .back {
+    transform: rotateY(0deg);
+}
+.flip-container.flipped .front {
+    transform: rotateY(180deg);
+}
+.matched{
+    opacity: 0.3;
+ }
+ .return {
+    text-align: center;
+}
+.return a{
+   padding: 5px;
+   background: red;
+   color: white;
+   text-decoration: none;
+}

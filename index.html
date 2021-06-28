@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="./node_modules/vue/dist/vue.min.js"></script>
+        <title>Card Flip Games</title>
+        <link href="./components/css/style.css" rel="stylesheet" type="text/css">     
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{title}}</h1>
+            <p>{{description}}</p>
+            <div class='container'>
+                <div class='first'> 
+                    <h2>{{game1}}</h2>
+                    <a v-bind:href="redirect1">Start Game</a>
+                </div>
+                <div class='second'> 
+                    <h2>{{game2}}</h2>
+                    <a v-bind:href="redirect2">Start Game</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    title:'Match Em Cards',
+                    description:`Concentration, also known as matching pairs. 
+                    This is a card game in which all of the cards are laid face 
+                    down and two cards are flipped face up over each turn.
+                    Once every card is match the game is won.`,
+                    game1:'Fruit Match',
+                    redirect1:'Card-Fruit-Flip/fruit.html',
+                    game2:'Card Deck Match',
+                    redirect2:'Card-Deck-Flip/deck.html'
+                }
+            })
+        </script>
+    </body>
+</html>

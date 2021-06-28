@@ -1,0 +1,17 @@
+All the references for the images used:
+
+1.ace/t - https://pixabay.com/vectors/clubs-ace-deck-playing-cards-game-884184/
+2.two - https://pixabay.com/vectors/clubs-two-deck-playing-cards-game-884148/
+3.three - https://pixabay.com/vectors/clubs-three-deck-playing-cards-884152/
+4.four - https://pixabay.com/vectors/clubs-four-deck-playing-cards-game-884156/
+5.five - https://pixabay.com/vectors/clubs-five-deck-playing-cards-game-884161/
+6.six - https://pixabay.com/vectors/clubs-six-deck-playing-cards-game-884167/
+7.seven - https://pixabay.com/vectors/clubs-seven-deck-playing-cards-884171/
+8.eight - https://pixabay.com/vectors/clubs-eight-deck-playing-cards-884175/
+9.nine - https://pixabay.com/vectors/clubs-nine-deck-playing-cards-game-884179/
+10.ten - https://pixabay.com/vectors/clubs-ten-deck-playing-cards-game-884144/
+11.jack/buse - https://pixabay.com/vectors/clubs-jack-deck-playing-cards-game-884188/
+12.queen - https://pixabay.com/vectors/clubs-queen-deck-playing-cards-884198/
+13. king - https://pixabay.com/vectors/clubs-king-deck-playing-cards-game-884194/
+
+14.card-backing - https://pixabay.com/photos/lily-pink-flower-nature-lilies-2783518/
