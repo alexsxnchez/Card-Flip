@@ -73,7 +73,7 @@ p {
     transform: rotate(20deg);
 }
 .card__border {
-    background-image: url('components/images/front-cover.png');
+    background: rgb(20, 20, 20);
     width: 180px;
     height: 250px;
     margin: auto;
@@ -81,22 +81,22 @@ p {
 }
 .card__border h2 {
     color: white;
-    padding: 20px;
-    text-shadow: 0 0 5px white;
+    padding: 20px 20px 90px 20px;
+    text-shadow: 0 0 3px white;
     margin: 0;
 }
 .card__border a{
     background: var(--grey);
     color: black;
+    font-weight: 800;
     text-decoration: none;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 2px 2px 1px black;
 }
 .card__border a:hover {
     background: green;
     color: white;
-    margin: 2px 0 0 2px;
     box-shadow: none;
+    box-shadow: 0px 0px 10px green;
 }
