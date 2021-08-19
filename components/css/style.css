@@ -55,22 +55,20 @@ p {
     margin-top: 40px;
 }
 .first{
-    padding: 10px;
     background-color: var(--orange);
-    border-radius: 5px;
-    width: 200px;
-    height: 270px;
     box-shadow: 0 0 20px var(--orange);
     transform: rotate(-20deg);
 }
 .second {
-    padding: 10px;
     background-color: var(--blue);
+    box-shadow: 0 0 20px var(--blue);
+    transform: rotate(20deg);
+}
+.card {
+    padding: 10px;
     border-radius: 5px;
     width: 200px;
     height: 270px;
-    box-shadow: 0 0 20px var(--blue);
-    transform: rotate(20deg);
 }
 .card__border {
     background: rgb(20, 20, 20);
@@ -99,4 +97,23 @@ p {
     color: white;
     box-shadow: none;
     box-shadow: 0px 0px 10px green;
+}
+
+@media only screen and (max-width: 450px) {
+    .title__img img{
+        height: 150px;
+        width: 240px;
+    }
+    .card {
+        width: 180px;
+        height: 250px;
+    }
+    .card__border {
+        width: 160px;
+        height: 230px;
+    }
+    .card__border h2 {
+        font-size: 18pt;
+        padding: 20px 20px 90px 20px;
+    }
 }
