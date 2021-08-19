@@ -10,16 +10,23 @@
     </head>
     <body>
         <div id="app">
-            <h1>{{title}}</h1>
+            <h1>title</h1>
+            <div class="title__img">
+                <img v-bind:src="'components/images/'+ title"/>
+            </div>
             <p>{{description}}</p>
             <div class='container'>
-                <div class='first'> 
-                    <h2>{{game1}}</h2>
-                    <a v-bind:href="redirect1">Start Game</a>
+                <div class='first'>
+                    <div class="card__border"> 
+                        <h2>{{game1}}</h2>
+                        <a v-bind:href="redirect1">Start Game</a>
+                    </div>
                 </div>
-                <div class='second'> 
-                    <h2>{{game2}}</h2>
-                    <a v-bind:href="redirect2">Start Game</a>
+                <div class='second'>
+                    <div class="card__border"> 
+                        <h2>{{game2}}</h2>
+                        <a v-bind:href="redirect2">Start Game</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -27,11 +34,10 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    title:'Match Em Cards',
-                    description:`Concentration, also known as matching pairs. 
-                    This is a card game in which all of the cards are laid face 
-                    down and two cards are flipped face up over each turn.
-                    Once every card is match the game is won.`,
+                    title:'title.png',
+                    description:`This is a memory game that challenges you to remember where each cards 
+                    is placed. The cards are shuffled at random and are laid face down, then two cards 
+                    are flipped face up over each turn. Once every card is match the game is won.`,
                     game1:'Fruit Match',
                     redirect1:'Card-Fruit-Flip/fruit.html',
                     game2:'Card Deck Match',

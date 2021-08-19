@@ -19,53 +19,73 @@
     box-sizing: border-box;
 }
 body {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: linear-gradient(var(--blue), var(--beige), var(--lightBlue), var(--orange));
-
+    font-family: var(--topTitle);
+    background: black;
 }
 #app {
-    margin: 140px 50px;
-}
-.container {
-    margin: auto;
-    text-align: center;
+    margin: 60px 50px;
 }
 h1 {
-    font-family: var(--topTitle);
-    font-size: 36px;
-    text-align: center;
+    display: none;
 }
 h2 {
     font-family: var(--originalBold);
     font-size: 28px;
     text-align: center;
 }
-p {
+.title__img {
     text-align: center;
+}
+p {
+    border-top: white thin solid;
+    width: 45%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
     white-space: pre-line;
+    color: white;
+}
+.container {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-top: 40px;
 }
 .first{
-    padding: 20px;
-}
-.first a{
-    background: var(--grey);
-    color: black;
-    text-decoration: none;
     padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 2px 2px 1px black;
-}
-.first a:hover {
-    background: var(--orange);
-    color: white;
-    margin: 2px 0 0 2px;
-    box-shadow: none;
+    background-color: var(--orange);
+    border-radius: 5px;
+    width: 200px;
+    height: 270px;
+    box-shadow: 0 0 20px var(--orange);
+    transform: rotate(-20deg);
 }
 .second {
-    padding: 20px;
+    padding: 10px;
+    background-color: var(--blue);
+    border-radius: 5px;
+    width: 200px;
+    height: 270px;
+    box-shadow: 0 0 20px var(--blue);
+    transform: rotate(20deg);
 }
-.second a{
+.card__border {
+    background-image: url('components/images/front-cover.png');
+    width: 180px;
+    height: 250px;
+    margin: auto;
+    border-radius: 5px;
+}
+.card__border h2 {
+    color: white;
+    padding: 20px;
+    text-shadow: 0 0 5px white;
+    margin: 0;
+}
+.card__border a{
     background: var(--grey);
     color: black;
     text-decoration: none;
@@ -74,8 +94,8 @@ p {
     cursor: pointer;
     box-shadow: 2px 2px 1px black;
 }
-.second a:hover {
-    background: var(--blue);
+.card__border a:hover {
+    background: green;
     color: white;
     margin: 2px 0 0 2px;
     box-shadow: none;
