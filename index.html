@@ -6,44 +6,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script src="./node_modules/vue/dist/vue.min.js"></script>
         <title>Card Flip Games</title>
+        <link rel="icon" href="components/images/favicon.ico">
         <link href="./components/css/style.css" rel="stylesheet" type="text/css">     
     </head>
     <body>
-        <div id="app">
-            <h1>title</h1>
-            <div class="title__img">
-                <img v-bind:src="'components/images/'+ title"/>
+        <header>
+            <div class="name__img">
+                <img src="./components/images/logo.png"/>
+                <h1>Card Flip</h1>
             </div>
+        </header>
+        <div id="app">
             <p>{{description}}</p>
             <div class='container'>
-                <div class='first card'>
-                    <div class="card__border"> 
-                        <h2>{{game1}}</h2>
-                        <a v-bind:href="redirect1">Start Game</a>
-                    </div>
-                </div>
-                <div class='second card'>
-                    <div class="card__border"> 
-                        <h2>{{game2}}</h2>
-                        <a v-bind:href="redirect2">Start Game</a>
-                    </div>
-                </div>
+                <cards
+                    v-for="cards in card"
+                    v-bind:color="cards.color"
+                    v-bind:title="cards.title"
+                    v-bind:redirect="cards.redirect">
+                </cards>
             </div>
         </div>
         <script>
+            Vue.component('cards',{
+                props:['color','title','redirect'],
+                template:
+                `<div class="card" v-bind:style="{'background-color':color, 'box-shadow':'0 0 20px '+color}">
+                    <div class="card__border"> 
+                        <h2>{{title}}</h2>
+                        <a v-bind:href=redirect>Start Game</a>
+                    </div>
+                </div>`
+            });
             var app = new Vue({
                 el: '#app',
                 data: {
-                    title:'title.png',
                     description:`This is a memory game that challenges you to remember where each cards 
                     is placed. The cards are shuffled at random and are laid face down, then two cards 
                     are flipped face up over each turn. Once every card is match the game is won.`,
-                    game1:'Fruit Match',
-                    redirect1:'Card-Fruit-Flip/fruit.html',
-                    game2:'Card Deck Match',
-                    redirect2:'Card-Deck-Flip/deck.html'
+                    card: [
+                        {title: 'Fruit Match', redirect: 'pages/fruit.html', color: '#fb8500'},
+                        {title: 'Card Deck Match', redirect: 'pages/deck.html', color: '#0077b6'},
+                        {title: 'Mario Match', redirect: '', color: '#d62828'},
+                        {title: 'Speed Match', redirect: '', color: '#55a630'},
+                    ]
                 }
             })
         </script>
     </body>
+    <footer>
+        <p>Flip Card © 2021</p>
+    </footer>
 </html>
